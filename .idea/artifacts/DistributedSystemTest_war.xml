@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="DistributedSystemTest:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="ds.war">
+      <element id="artifact" artifact-name="DistributedSystemTest:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -28,7 +28,7 @@ public class FogUserServiceImpl implements FogUserService {
     }
 
 
-    @ReadThroughSingleCache(namespace = NAMESPACE, expiration = 3)
+    @ReadThroughSingleCache(namespace = NAMESPACE, expiration = 3600)
     public FogUser getById(@ParameterValueKeyProvider String userId) {
 
         FogUserExample example = new FogUserExample();
@@ -40,7 +40,7 @@ public class FogUserServiceImpl implements FogUserService {
         return mUserMapper.selectByExample(example).get(0);
     }
 
-    @UpdateSingleCache(namespace = NAMESPACE, expiration = 3)
+    @UpdateSingleCache(namespace = NAMESPACE, expiration = 3600)
     public void updateUser(@ParameterValueKeyProvider @ParameterDataUpdateContent FogUser user) {
         System.out.println("update user .");
         mUserMapper.updateByPrimaryKey(user);

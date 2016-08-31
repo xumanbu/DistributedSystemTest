@@ -68,7 +68,7 @@
         <!-- 定义了缓存节点的IP地址和端口号 -->
         <property name="addressProvider">
             <bean class="com.google.code.ssm.config.DefaultAddressProvider">
-                <property name="address" value="192.168.0.122:11211"/>
+                <property name="address" value="memcached:11211"/>
             </bean>
         </property>
         <!-- 定义了缓存节点的查找方法 -->

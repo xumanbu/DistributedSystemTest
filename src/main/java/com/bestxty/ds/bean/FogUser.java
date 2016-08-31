@@ -1,6 +1,11 @@
 package com.bestxty.ds.bean;
 
-public class FogUser {
+import com.google.code.ssm.api.CacheKeyMethod;
+
+import java.io.Serializable;
+
+public class FogUser implements Serializable {
+    private static final long serialVersionUID = 5156108490825077651L;
     private Integer fogUserId;
 
     private String userid;
@@ -15,6 +20,8 @@ public class FogUser {
         this.fogUserId = fogUserId;
     }
 
+
+    @CacheKeyMethod
     public String getUserid() {
         return userid;
     }
@@ -29,5 +36,14 @@ public class FogUser {
 
     public void setToken(String token) {
         this.token = token == null ? null : token.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "FogUser{" +
+                "fogUserId=" + fogUserId +
+                ", userid='" + userid + '\'' +
+                ", token='" + token + '\'' +
+                '}';
     }
 }

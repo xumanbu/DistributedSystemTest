@@ -38,7 +38,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <!-- 自动扫描mapping.xml文件 -->
-        <!--<property name="mapperLocations" value="classpath:com/bestxty/ds/bean/mapping/*.xml"/>-->
+        <property name="mapperLocations" value="classpath:com/bestxty/ds/bean/mapping/*.xml"/>
     </bean>
 
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
@@ -55,7 +55,7 @@
 
 
     <!-- ssm 配置文件，主要用来加载组件核心的Advice，供程序调度使用；封装在 simple-spring-memcached-3.1.0.jar 文件中-->
-    <import resource="simplesm-context.xml"/>
+    <import resource="classpath:simplesm-context.xml"/>
     <!-- 让代理机制起到作用,simple-spring-memcached主要是基于AOP的代理  -->
     <aop:aspectj-autoproxy/>
     <!-- com.google.code.ssm.CacheFactory是一个FactoryBean，会返回Cache（高速缓存）实体供Advice使用 -->
@@ -73,13 +73,24 @@
         </property>
         <!-- 定义了缓存节点的查找方法 -->
         <property name="configuration">
-            <bean class="com.google.code.ssm.providers.CacheConfiguration">
+            <bean class="com.google.code.ssm.providers.xmemcached.XMemcachedConfiguration">
                 <property name="consistentHashing" value="true"/>
+
+                <property name="connectionPoolSize" value="1"/>
+
+                <property name="optimizeGet" value="false"/>
+
+                <property name="optimizeMergeBuffer" value="false"/>
+
+                <property name="mergeFactor" value="50"/>
+
+                <property name="useBinaryProtocol" value="true"/>
+                <property name="connectionTimeout" value="2000"/>
+                <property name="enableHeartBeat" value="true"/>
+                <property name="failureMode" value="false"/>
             </bean>
         </property>
     </bean>
-
-
 
 
 </beans>

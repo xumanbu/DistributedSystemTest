@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <context:component-scan base-package="com.bestxty">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+    <!-- 配置SessionFactory -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${jdbc.driverClassName}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+
+        <!-- <property name="acquireIncrement" value="${c3p0.acquireIncrement}"/> -->
+        <property name="idleConnectionTestPeriod" value="${c3p0.idleConnectionTestPeriod}"/>
+        <property name="initialPoolSize" value="${c3p0.initialPoolSize}"/>
+        <property name="maxIdleTime" value="${c3p0.maxIdleTime}"/>
+        <property name="maxPoolSize" value="${c3p0.maxPoolSize}"/>
+        <property name="maxStatements" value="${c3p0.maxStatements}"/>
+        <property name="maxStatementsPerConnection" value="${c3p0.maxStatementsPerConnection}"/>
+        <property name="minPoolSize" value="${c3p0.minPoolSize}"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 自动扫描mapping.xml文件 -->
+        <!--<property name="mapperLocations" value="classpath:com/bestxty/ds/bean/mapping/*.xml"/>-->
+    </bean>
+
+    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.bestxty.ds.dao"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+    <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+    <!-- ssm 配置文件，主要用来加载组件核心的Advice，供程序调度使用；封装在 simple-spring-memcached-3.1.0.jar 文件中-->
+    <import resource="simplesm-context.xml"/>
+    <!-- 让代理机制起到作用,simple-spring-memcached主要是基于AOP的代理  -->
+    <aop:aspectj-autoproxy/>
+    <!-- com.google.code.ssm.CacheFactory是一个FactoryBean，会返回Cache（高速缓存）实体供Advice使用 -->
+    <!-- FactoryBean解决的是如何创建无法直接通过new运算符创建的Bean，并注入到其他的bean中。也就是说FactoryBean是创建或者管理其他被注入和管理Bean的工厂Bean -->
+    <bean name="cacheClientFactory" class="com.google.code.ssm.CacheFactory">
+        <property name="cacheClientFactory">
+            <!-- xmemcached配置方法 -->
+            <bean class="com.google.code.ssm.providers.xmemcached.MemcacheClientFactoryImpl"/>
+        </property>
+        <!-- 定义了缓存节点的IP地址和端口号 -->
+        <property name="addressProvider">
+            <bean class="com.google.code.ssm.config.DefaultAddressProvider">
+                <property name="address" value="192.168.0.122:11211"/>
+            </bean>
+        </property>
+        <!-- 定义了缓存节点的查找方法 -->
+        <property name="configuration">
+            <bean class="com.google.code.ssm.providers.CacheConfiguration">
+                <property name="consistentHashing" value="true"/>
+            </bean>
+        </property>
+    </bean>
+
+
+
+
+</beans>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--<context:property-placeholder location="classpath:jdbc.properties"/>-->
+
+
+    <bean name="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxIdle" value="300"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="maxWaitMillis" value="1000"/>
+        <!-- max active -->
+    </bean>
+
+    <bean name="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="hostName" value=""/>
+        <property name="port" value="11"/>
+        <property name="password" value=""/>
+        <property name="poolConfig" ref="poolConfig"/>
+    </bean>
+
+    <bean class="org.springframework.data.redis.core.StringRedisTemplate">
+        <property name="connectionFactory" ref="connectionFactory"/>
+    </bean>
+
+</beans>

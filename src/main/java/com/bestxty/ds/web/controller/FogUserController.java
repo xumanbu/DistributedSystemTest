@@ -19,6 +19,9 @@ public class FogUserController {
     @Autowired
     private FogUserService mUserService;
 
+    public FogUserController() {
+        System.out.println("FogUserController.FogUserController----------->");
+    }
 
     @RequestMapping("/add")
     @ResponseBody

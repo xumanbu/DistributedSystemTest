@@ -4,9 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <!--<context:property-placeholder location="classpath:jdbc.properties"/>-->
-
-
     <bean name="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
         <property name="maxIdle" value="300"/>
         <property name="testOnBorrow" value="true"/>
@@ -15,9 +12,10 @@
     </bean>
 
     <bean name="connectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
-        <property name="hostName" value=""/>
-        <property name="port" value="11"/>
-        <property name="password" value=""/>
+        <!-- host,port,password  defined in pom.xml -->
+        <property name="hostName" value="${redis.host}"/>
+        <property name="port" value="${redis.port}"/>
+        <property name="password" value="${redis.password}"/>
         <property name="poolConfig" ref="poolConfig"/>
     </bean>
 

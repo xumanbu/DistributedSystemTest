@@ -2,9 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
     <context:component-scan base-package="com.bestxty">
@@ -21,8 +20,7 @@
         <property name="jdbcUrl" value="${jdbc.url}"/>
         <property name="user" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
-
-        <!-- <property name="acquireIncrement" value="${c3p0.acquireIncrement}"/> -->
+        <property name="acquireIncrement" value="${c3p0.acquireIncrement}"/>
         <property name="idleConnectionTestPeriod" value="${c3p0.idleConnectionTestPeriod}"/>
         <property name="initialPoolSize" value="${c3p0.initialPoolSize}"/>
         <property name="maxIdleTime" value="${c3p0.maxIdleTime}"/>
@@ -34,7 +32,7 @@
 
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <!-- 自动扫描mapping.xml文件 -->
@@ -53,44 +51,8 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-
-    <!-- ssm 配置文件，主要用来加载组件核心的Advice，供程序调度使用；封装在 simple-spring-memcached-3.1.0.jar 文件中-->
-    <import resource="classpath:simplesm-context.xml"/>
-    <!-- 让代理机制起到作用,simple-spring-memcached主要是基于AOP的代理  -->
-    <aop:aspectj-autoproxy/>
-    <!-- com.google.code.ssm.CacheFactory是一个FactoryBean，会返回Cache（高速缓存）实体供Advice使用 -->
-    <!-- FactoryBean解决的是如何创建无法直接通过new运算符创建的Bean，并注入到其他的bean中。也就是说FactoryBean是创建或者管理其他被注入和管理Bean的工厂Bean -->
-    <bean name="cacheClientFactory" class="com.google.code.ssm.CacheFactory">
-        <property name="cacheClientFactory">
-            <!-- xmemcached配置方法 -->
-            <bean class="com.google.code.ssm.providers.xmemcached.MemcacheClientFactoryImpl"/>
-        </property>
-        <!-- 定义了缓存节点的IP地址和端口号 -->
-        <property name="addressProvider">
-            <bean class="com.google.code.ssm.config.DefaultAddressProvider">
-                <property name="address" value="memcached:11211"/>
-            </bean>
-        </property>
-        <!-- 定义了缓存节点的查找方法 -->
-        <property name="configuration">
-            <bean class="com.google.code.ssm.providers.xmemcached.XMemcachedConfiguration">
-                <property name="consistentHashing" value="true"/>
-
-                <property name="connectionPoolSize" value="1"/>
-
-                <property name="optimizeGet" value="false"/>
-
-                <property name="optimizeMergeBuffer" value="false"/>
-
-                <property name="mergeFactor" value="50"/>
-
-                <property name="useBinaryProtocol" value="true"/>
-                <property name="connectionTimeout" value="2000"/>
-                <property name="enableHeartBeat" value="true"/>
-                <property name="failureMode" value="false"/>
-            </bean>
-        </property>
-    </bean>
+    <!-- spring memcached -->
+    <import resource="classpath:spring-memcached.xml"/>
 
 
 </beans>

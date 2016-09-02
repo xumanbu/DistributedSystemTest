@@ -7,18 +7,29 @@
     <version>1.0-SNAPSHOT</version>
     <name>ds Maven Webapp</name>
     <url>http://maven.apache.org</url>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.encoding>UTF-8</project.encoding>
+        <junit.version>4.12</junit.version>
+        <servlet.version>3.1.0</servlet.version>
+        <spring.version>4.1.6.RELEASE</spring.version>
+        <memcached.version>3.6.1</memcached.version>
+    </properties>
+
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
+            <version>${servlet.version}</version>
             <scope>provided</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
@@ -32,14 +43,14 @@
         <dependency>
             <groupId>com.google.code.simple-spring-memcached</groupId>
             <artifactId>simple-spring-memcached</artifactId>
-            <version>3.6.1</version>
+            <version>${memcached.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.google.code.simple-spring-memcached/xmemcached-provider -->
         <dependency>
             <groupId>com.google.code.simple-spring-memcached</groupId>
             <artifactId>xmemcached-provider</artifactId>
-            <version>3.6.1</version>
+            <version>${memcached.version}</version>
         </dependency>
 
 
@@ -47,43 +58,42 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>4.1.6.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>4.1.6.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>4.1.6.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>4.1.6.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
-            <version>4.1.6.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
-            <version>4.1.6.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>4.1.6.RELEASE</version>
+            <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -146,6 +156,51 @@
         </dependency>
 
     </dependencies>
+
+
+    <profiles>
+
+        <profile>
+            <id>product</id>
+            <properties>
+                <!-- database product environment config.-->
+                <database-url>jdbc:mysql://mysql:3306/fogcloud</database-url>
+                <database-username>product</database-username>
+                <database-password>123456</database-password>
+                <!--memcached address.-->
+                <memcached-address>memcached:11211</memcached-address>
+
+                <!-- redis config.-->
+                <redis.host>baidu.com</redis.host>
+                <redis.port>110</redis.port>
+                <redis.password>123456</redis.password>
+            </properties>
+        </profile>
+        <profile>
+
+            <id>dev</id>
+            <properties>
+                <!-- database dev environment config. -->
+                <database-url>jdbc:mysql://localhost:3306/fogcloud</database-url>
+                <database-username>root</database-username>
+                <database-password>123456</database-password>
+
+                <!-- memcached address-->
+                <memcached-address>memcached:11211</memcached-address>
+
+                <!-- redis config.-->
+                <redis.host>baidu.com</redis.host>
+                <redis.port>110</redis.port>
+                <redis.password>123456</redis.password>
+
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+
+    </profiles>
+
     <build>
 
         <plugins>
@@ -153,8 +208,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.encoding}</encoding>
                 </configuration>
             </plugin>
             <plugin>
@@ -166,8 +222,6 @@
                     <overwrite>true</overwrite>
                 </configuration>
             </plugin>
-
-
 
 
         </plugins>
@@ -184,10 +238,8 @@
             </resource>
             <resource>
                 <directory>src/main/resources</directory>
-                <!--
-                    <includes> <include>**/*.properties</include>
-                    <include>**/*.xml</include> </includes> <filtering>true</filtering>
-                -->
+
+                <filtering>true</filtering>
             </resource>
         </resources>
 

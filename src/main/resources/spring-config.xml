@@ -52,8 +52,8 @@
     </bean>
 
     <!-- spring memcached -->
-    <import resource="classpath:spring-memcached.xml"/>
-    <import resource="classpath:spring-security.xml"/>
+    <!--<import resource="classpath:spring-memcached.xml"/>-->
+    <!--<import resource="classpath:spring-security.xml"/>-->
 
 
 </beans>

@@ -26,8 +26,8 @@
             <id>product</id>
             <properties>
                 <!-- database product environment config.-->
-                <database-url>jdbc:mysql://mysql:3306/fogcloud</database-url>
-                <database-username>product</database-username>
+                <database-url>jdbc:mysql://192.168.31.203:3306/fogcloud</database-url>
+                <database-username>root</database-username>
                 <database-password>123456</database-password>
                 <!--memcached address.-->
                 <memcached-address>memcached:11211</memcached-address>
@@ -37,6 +37,9 @@
                 <redis.port>110</redis.port>
                 <redis.password>123456</redis.password>
             </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
         </profile>
         <profile>
 
@@ -56,9 +59,7 @@
                 <redis.password>123456</redis.password>
 
             </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
+
         </profile>
 
     </profiles>

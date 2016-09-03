@@ -15,8 +15,53 @@
         <servlet.version>3.1.0</servlet.version>
         <spring.version>4.1.6.RELEASE</spring.version>
         <memcached.version>3.6.1</memcached.version>
+        <spring.security.version>4.0.3.RELEASE</spring.security.version>
     </properties>
 
+
+
+    <profiles>
+
+        <profile>
+            <id>product</id>
+            <properties>
+                <!-- database product environment config.-->
+                <database-url>jdbc:mysql://mysql:3306/fogcloud</database-url>
+                <database-username>product</database-username>
+                <database-password>123456</database-password>
+                <!--memcached address.-->
+                <memcached-address>memcached:11211</memcached-address>
+
+                <!-- redis config.-->
+                <redis.host>baidu.com</redis.host>
+                <redis.port>110</redis.port>
+                <redis.password>123456</redis.password>
+            </properties>
+        </profile>
+        <profile>
+
+            <id>dev</id>
+            <properties>
+                <!-- database dev environment config. -->
+                <database-url>jdbc:mysql://localhost:3306/fogcloud</database-url>
+                <database-username>root</database-username>
+                <database-password>123456</database-password>
+
+                <!-- memcached address-->
+                <memcached-address>memcached:11211</memcached-address>
+
+                <!-- redis config.-->
+                <redis.host>baidu.com</redis.host>
+                <redis.port>110</redis.port>
+                <redis.password>123456</redis.password>
+
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+
+    </profiles>
 
     <dependencies>
         <dependency>
@@ -97,6 +142,45 @@
             <scope>test</scope>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-acl</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.security.oauth/spring-security-oauth2 -->
+        <dependency>
+            <groupId>org.springframework.security.oauth</groupId>
+            <artifactId>spring-security-oauth2</artifactId>
+            <version>2.0.7.RELEASE</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -158,48 +242,6 @@
     </dependencies>
 
 
-    <profiles>
-
-        <profile>
-            <id>product</id>
-            <properties>
-                <!-- database product environment config.-->
-                <database-url>jdbc:mysql://mysql:3306/fogcloud</database-url>
-                <database-username>product</database-username>
-                <database-password>123456</database-password>
-                <!--memcached address.-->
-                <memcached-address>memcached:11211</memcached-address>
-
-                <!-- redis config.-->
-                <redis.host>baidu.com</redis.host>
-                <redis.port>110</redis.port>
-                <redis.password>123456</redis.password>
-            </properties>
-        </profile>
-        <profile>
-
-            <id>dev</id>
-            <properties>
-                <!-- database dev environment config. -->
-                <database-url>jdbc:mysql://localhost:3306/fogcloud</database-url>
-                <database-username>root</database-username>
-                <database-password>123456</database-password>
-
-                <!-- memcached address-->
-                <memcached-address>memcached:11211</memcached-address>
-
-                <!-- redis config.-->
-                <redis.host>baidu.com</redis.host>
-                <redis.port>110</redis.port>
-                <redis.password>123456</redis.password>
-
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-
-    </profiles>
 
     <build>
 

@@ -19,7 +19,6 @@
     </properties>
 
 
-
     <profiles>
 
         <profile>
@@ -49,7 +48,7 @@
                 <database-password>123456</database-password>
 
                 <!-- memcached address-->
-                <memcached-address>memcached:11211</memcached-address>
+                <memcached-address>192.168.0.122:11211</memcached-address>
 
                 <!-- redis config.-->
                 <redis.host>baidu.com</redis.host>
@@ -244,8 +243,53 @@
             <artifactId>quartz-jobs</artifactId>
             <version>2.2.3</version>
         </dependency>
-    </dependencies>
 
+        <!-- https://mvnrepository.com/artifact/com.octo.captcha/jcaptcha -->
+        <dependency>
+            <groupId>com.octo.captcha</groupId>
+            <artifactId>jcaptcha-all</artifactId>
+            <version>1.0-RC6</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>quartz</groupId>
+                    <artifactId>quartz</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-dbcp</groupId>
+                    <artifactId>commons-dbcp</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-pool</groupId>
+                    <artifactId>commons-pool</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>hsqldb</groupId>
+                    <artifactId>hsqldb</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>net.sf.ehcache</groupId>
+                    <artifactId>ehcache</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>concurrent</groupId>
+                    <artifactId>concurrent</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>xerces</groupId>
+                    <artifactId>xercesImpl</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>xerces</groupId>
+                    <artifactId>xmlParserAPIs</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+    </dependencies>
 
 
     <build>

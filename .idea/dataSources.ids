@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - fogcloud@192.168.0.122" uuid="bd659425-fd67-4f8f-95ee-70c2c35c4ff2">
+    <database-info product="MySQL" version="5.7.14" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="fogcloud"/>
+      <table id="2" parent="1" name="tb_fog_user"/>
+      <column id="3" parent="2" name="fog_user_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="4" parent="2" name="userId">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="5" parent="2" name="token">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <key id="6" parent="2" name="PRIMARY">
+        <columns>fog_user_id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>

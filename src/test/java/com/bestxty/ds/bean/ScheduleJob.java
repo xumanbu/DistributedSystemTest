@@ -1,17 +1,19 @@
 package com.bestxty.ds.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author xty
  *         Created by xty on 2016/9/3.
  */
-public class ScheduleJob {
+public class ScheduleJob implements Serializable{
 
     public static final String STATUS_RUNNING = "1";
     public static final String STATUS_NOT_RUNNING = "0";
     public static final String CONCURRENT_IS = "1";
     public static final String CONCURRENT_NOT = "0";
+    private static final long serialVersionUID = 2914957874050779268L;
     private Long jobId;
 
     private Date createTime;

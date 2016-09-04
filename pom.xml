@@ -37,9 +37,7 @@
                 <redis.port>110</redis.port>
                 <redis.password>123456</redis.password>
             </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
+
         </profile>
         <profile>
 
@@ -59,7 +57,9 @@
                 <redis.password>123456</redis.password>
 
             </properties>
-
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
         </profile>
 
     </profiles>
@@ -239,7 +239,11 @@
             <artifactId>quartz</artifactId>
             <version>2.2.3</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz-jobs</artifactId>
+            <version>2.2.3</version>
+        </dependency>
     </dependencies>
 
 

@@ -35,13 +35,13 @@ public class QuartzTest extends AbstractJUnit4SpringContextTests {
 
         System.out.println(schedulerFactoryBean == null);
 
-        ScheduleJob job = new ScheduleJob();
-        job.setJobName("testName");
-        job.setJobGroup("testGroup");
-        job.setCronExpression("0/5 * * ? * *");
-
-        job.setJobStatus(ScheduleJob.STATUS_NOT_RUNNING);
-        addJob(job);
+//        ScheduleJob job = new ScheduleJob();
+//        job.setJobName("testName");
+//        job.setJobGroup("testGroup");
+//        job.setCronExpression("0/5 * * ? * *");
+//
+//        job.setJobStatus(ScheduleJob.STATUS_NOT_RUNNING);
+//        addJob(job);
 
 
         System.in.read();

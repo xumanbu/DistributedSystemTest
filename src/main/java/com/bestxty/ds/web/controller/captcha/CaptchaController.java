@@ -1,4 +1,4 @@
-package com.bestxty.ds.web.controller;
+package com.bestxty.ds.web.controller.captcha;
 
 import com.octo.captcha.service.image.ImageCaptchaService;
 import org.springframework.beans.factory.annotation.Autowired;

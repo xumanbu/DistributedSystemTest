@@ -1,4 +1,4 @@
-import com.bestxty.ds.common.captcha.CacheService;
+import com.bestxty.ds.service.captcha.CacheService;
 import com.octo.captcha.service.text.TextCaptchaService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

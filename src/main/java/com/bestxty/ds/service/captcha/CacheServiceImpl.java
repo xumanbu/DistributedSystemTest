@@ -1,4 +1,4 @@
-package com.bestxty.ds.common.captcha;
+package com.bestxty.ds.service.captcha;
 
 import com.google.code.ssm.Cache;
 import com.google.code.ssm.api.format.SerializationType;

@@ -51,9 +51,9 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-     <!--spring memcached -->
+    <!--spring memcached -->
     <import resource="classpath:spring-memcached.xml"/>
-    <!--<import resource="classpath:spring-security-oauth.xml"/>-->
+    <import resource="classpath:spring-security-oauth.xml"/>
     <import resource="classpath:spring-jcaptcha.xml"/>
 
 

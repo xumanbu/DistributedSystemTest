@@ -84,4 +84,27 @@
         <security:csrf disabled="true"/>
     </security:http>
 
+
+    <security:http pattern="/oauthed/**" create-session="never" entry-point-ref="auth2AuthenticationEntryPoint"
+                   access-decision-manager-ref="oauth2AccessDecisionManager">
+        <security:anonymous enabled="false"/>
+
+        <security:intercept-url pattern="/oauthed/**" access=""/>
+
+        <security:custom-filter ref="unityResourceServer" before="PRE_AUTH_FILTER"/>
+
+        <security:access-denied-handler ref="auth2AccessDeniedHandler"/>
+    </security:http>
+
+    <security:http pattern="/user/**" create-session="never" entry-point-ref="auth2AuthenticationEntryPoint"
+                   access-decision-manager-ref="oauth2AccessDecisionManager">
+        <security:anonymous enabled="false"/>
+
+        <security:intercept-url pattern="/user/**" access=""/>
+
+        <security:custom-filter ref="mobileResourceServer" before="PRE_AUTH_FILTER"/>
+
+        <security:access-denied-handler ref="auth2AccessDeniedHandler"/>
+    </security:http>
+
 </beans>

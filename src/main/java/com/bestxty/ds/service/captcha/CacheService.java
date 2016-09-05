@@ -1,4 +1,4 @@
-package com.bestxty.ds.common.captcha;
+package com.bestxty.ds.service.captcha;
 
 import com.octo.captcha.service.captchastore.CaptchaAndLocale;
 

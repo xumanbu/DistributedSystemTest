@@ -86,10 +86,10 @@
     </bean>
 
 
-    <bean id="memcachedCaptchaStore" class="com.bestxty.ds.common.captcha.MemcachedCaptchaStore"/>
+    <bean id="memcachedCaptchaStore" class="com.bestxty.ds.service.captcha.MemcachedCaptchaStore"/>
 
 
-    <bean id="captchaService" class="com.bestxty.ds.common.captcha.MemcachedGenericManageableCaptchaService">
+    <bean id="captchaService" class="com.bestxty.ds.service.captcha.MemcachedGenericManageableCaptchaService">
         <constructor-arg index="0" ref="memcachedCaptchaStore"/>
         <constructor-arg index="1" ref="imageEngine"/>
         <constructor-arg index="2" type="int" value="180"/>

@@ -1,4 +1,4 @@
-package com.bestxty.ds.web.controller;
+package com.bestxty.ds.web.controller.user;
 
 import com.bestxty.ds.bean.FogUser;
 import com.bestxty.ds.service.FogUserService;

@@ -50,13 +50,20 @@
         <!--最大字体-->
         <constructor-arg index="1" value="20"/>
         <constructor-arg index="2">
-            <list>
+            <array value-type="java.awt.Font">
                 <bean class="java.awt.Font">
                     <constructor-arg index="0" value="Arial"/>
                     <constructor-arg index="1" value="0"/>
                     <constructor-arg index="2" value="20"/>
                 </bean>
-            </list>
+            </array>
+            <!--<list>-->
+            <!--<bean class="java.awt.Font">-->
+            <!--<constructor-arg index="0" value="Arial"/>-->
+            <!--<constructor-arg index="1" value="0"/>-->
+            <!--<constructor-arg index="2" value="20"/>-->
+            <!--</bean>-->
+            <!--</list>-->
         </constructor-arg>
     </bean>
 
@@ -87,6 +94,7 @@
 
 
     <bean id="memcachedCaptchaStore" class="com.bestxty.ds.service.captcha.MemcachedCaptchaStore"/>
+    <bean id="cacheService" class="com.bestxty.ds.service.captcha.CacheServiceImpl"/>
 
 
     <bean id="captchaService" class="com.bestxty.ds.service.captcha.MemcachedGenericManageableCaptchaService">
@@ -97,5 +105,12 @@
 
 
     </bean>
+    <!--<bean id="captchaService" class="com.octo.captcha.service.multitype.GenericManageableCaptchaService">-->
+    <!--<constructor-arg index="0" ref="imageEngine"/>-->
+    <!--<constructor-arg index="1" type="int" value="180"/>-->
+    <!--<constructor-arg index="2" type="int" value="100000"/>-->
+
+
+    <!--</bean>-->
 
 </beans>

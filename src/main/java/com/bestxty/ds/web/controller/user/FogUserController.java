@@ -20,7 +20,6 @@ public class FogUserController {
     private FogUserService mUserService;
 
     public FogUserController() {
-        System.out.println("FogUserController.FogUserController----------->");
     }
 
     @RequestMapping("/add")

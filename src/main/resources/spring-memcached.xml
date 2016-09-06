@@ -6,13 +6,10 @@
             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
-    <!-- ssm 配置文件，主要用来加载组件核心的Advice，供程序调度使用；封装在 simple-spring-memcached-3.1.0.jar 文件中-->
-    <import resource="classpath:simplesm-context.xml"/>
-    <!-- 让代理机制起到作用,simple-spring-memcached主要是基于AOP的代理  -->
-    <aop:aspectj-autoproxy/>
+
     <!-- com.google.code.ssm.CacheFactory是一个FactoryBean，会返回Cache（高速缓存）实体供Advice使用 -->
     <!-- FactoryBean解决的是如何创建无法直接通过new运算符创建的Bean，并注入到其他的bean中。也就是说FactoryBean是创建或者管理其他被注入和管理Bean的工厂Bean -->
-    <bean name="cacheClientFactory" class="com.google.code.ssm.CacheFactory">
+    <bean name="cacheFactory" class="com.google.code.ssm.CacheFactory">
         <property name="cacheClientFactory">
             <!-- xmemcached配置方法 -->
             <bean class="com.google.code.ssm.providers.xmemcached.MemcacheClientFactoryImpl"/>
@@ -44,5 +41,9 @@
         </property>
     </bean>
 
+    <!-- ssm 配置文件，主要用来加载组件核心的Advice，供程序调度使用；封装在 simple-spring-memcached-3.1.0.jar 文件中-->
+    <import resource="classpath:simplesm-context.xml"/>
+    <!-- 让代理机制起到作用,simple-spring-memcached主要是基于AOP的代理  -->
+    <aop:aspectj-autoproxy/>
 
 </beans>

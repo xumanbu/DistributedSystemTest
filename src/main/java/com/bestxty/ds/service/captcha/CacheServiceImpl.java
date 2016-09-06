@@ -13,7 +13,7 @@ import java.util.concurrent.TimeoutException;
  * Created by xty on 2016/9/4.
  * for project: DistributedSystemTest.
  */
-@Component
+//@Component
 public class CacheServiceImpl implements CacheService {
 
 

@@ -3,13 +3,13 @@
              xsi:schemaLocation="http://www.zeroturnaround.com http://www.zeroturnaround.com/alderaan/rebel-2_0.xsd">
 
     <classpath>
-        <dir name="D:/IdeaProjects/DistributedSystemTest/target/classes">
+        <dir name="F:/IdeaProjects/DistributedSystemTest/target/classes">
         </dir>
     </classpath>
 
     <web>
         <link target="/">
-            <dir name="D:/IdeaProjects/DistributedSystemTest/src/main/webapp">
+            <dir name="F:/IdeaProjects/DistributedSystemTest/src/main/webapp">
             </dir>
         </link>
     </web>

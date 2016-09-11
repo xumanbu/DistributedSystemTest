@@ -9,9 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
-import org.springframework.stereotype.Repository;
 
-@Repository
 public interface FogUserMapper {
     int countByExample(FogUserExample example);
 
@@ -25,9 +23,11 @@ public interface FogUserMapper {
 
     @Insert({
         "insert into tb_fog_user (fog_user_id, userId, ",
-        "token)",
+        "token, username, ",
+        "password)",
         "values (#{fogUserId,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, ",
-        "#{token,jdbcType=VARCHAR})"
+        "#{token,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, ",
+        "#{password,jdbcType=VARCHAR})"
     })
     int insert(FogUser record);
 
@@ -37,7 +37,7 @@ public interface FogUserMapper {
 
     @Select({
         "select",
-        "fog_user_id, userId, token",
+        "fog_user_id, userId, token, username, password",
         "from tb_fog_user",
         "where fog_user_id = #{fogUserId,jdbcType=INTEGER}"
     })
@@ -53,7 +53,9 @@ public interface FogUserMapper {
     @Update({
         "update tb_fog_user",
         "set userId = #{userid,jdbcType=VARCHAR},",
-          "token = #{token,jdbcType=VARCHAR}",
+          "token = #{token,jdbcType=VARCHAR},",
+          "username = #{username,jdbcType=VARCHAR},",
+          "password = #{password,jdbcType=VARCHAR}",
         "where fog_user_id = #{fogUserId,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(FogUser record);

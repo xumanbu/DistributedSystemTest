@@ -27,6 +27,7 @@
           <file>file://$MODULE_DIR$/src/main/resources/spring-security.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/spring-jcaptcha.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/spring-security-oauth.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring-security-oauth2.xml</file>
         </fileset>
       </configuration>
     </facet>

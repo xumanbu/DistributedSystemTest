@@ -48,7 +48,7 @@
                 <database-password>123456</database-password>
 
                 <!-- memcached address-->
-                <memcached-address>192.168.0.122:11211</memcached-address>
+                <memcached-address>192.168.99.112:11211</memcached-address>
 
                 <!-- redis config.-->
                 <redis.host>baidu.com</redis.host>
@@ -108,6 +108,12 @@
         <dependency>
             <groupId>com.google.code.simple-spring-memcached</groupId>
             <artifactId>xmemcached-provider</artifactId>
+            <version>${memcached.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.code.simple-spring-memcached/spring-cache -->
+        <dependency>
+            <groupId>com.google.code.simple-spring-memcached</groupId>
+            <artifactId>spring-cache</artifactId>
             <version>${memcached.version}</version>
         </dependency>
 

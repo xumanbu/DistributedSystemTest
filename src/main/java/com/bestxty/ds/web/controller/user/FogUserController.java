@@ -2,6 +2,8 @@ package com.bestxty.ds.web.controller.user;
 
 import com.bestxty.ds.bean.FogUser;
 import com.bestxty.ds.service.FogUserService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/user")
 public class FogUserController {
 
+    private static final Logger logger = LogManager.getLogger(FogUserController.class);
+
     @Autowired
     private FogUserService mUserService;
 
@@ -26,6 +30,7 @@ public class FogUserController {
     @ResponseBody
     public String create(@RequestParam(value = "token") String token) {
 
+        logger.info("SpringMvc Controller Test.");
         FogUser fogUser = new FogUser();
         fogUser.setToken(token);
         fogUser.setUserid("xty3");

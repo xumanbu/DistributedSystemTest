@@ -8,7 +8,7 @@
 
     <cache:annotation-driven cache-manager="ssmCacheManager"/>
 
-    <bean name="dao" class="com.bestxty.ds.bean.CacheAnnotationDao"/>
+    <!--<bean name="dao" class="com.bestxty.ds.bean.CacheAnnotationDao" />-->
 
     <bean name="ssmCacheManager" class="com.google.code.ssm.spring.SSMCacheManager">
         <property name="caches">

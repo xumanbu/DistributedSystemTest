@@ -3,6 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DistributedSystemTest.iml" filepath="$PROJECT_DIR$/DistributedSystemTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-mybaits/spring-mybaits.iml" filepath="$PROJECT_DIR$/spring-mybaits/spring-mybaits.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-quartz/spring-quartz.iml" filepath="$PROJECT_DIR$/spring-quartz/spring-quartz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-service/spring-service.iml" filepath="$PROJECT_DIR$/spring-service/spring-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-web/spring-web.iml" filepath="$PROJECT_DIR$/spring-web/spring-web.iml" />
     </modules>
   </component>
 </project>

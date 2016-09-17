@@ -3,8 +3,14 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.bestxty</groupId>
     <artifactId>ds</artifactId>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>spring-quartz</module>
+        <module>spring-mybaits</module>
+        <module>spring-service</module>
+        <module>spring-web</module>
+    </modules>
     <name>ds Maven Webapp</name>
     <url>http://maven.apache.org</url>
 

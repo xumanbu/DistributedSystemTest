@@ -22,11 +22,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="DistributedSystemTest" />
+        <module name="spring-mybaits" />
+        <module name="spring-quartz" />
+        <module name="spring-service" />
+        <module name="spring-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="DistributedSystemTest" target="1.8" />
+      <module name="spring-mybaits" target="1.8" />
+      <module name="spring-quartz" target="1.8" />
+      <module name="spring-service" target="1.8" />
+      <module name="spring-web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

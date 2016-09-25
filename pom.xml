@@ -22,14 +22,28 @@
     <url>http://maven.apache.org</url>
 
     <properties>
+
+        <!-- build environment version define-->
         <java.version>1.8</java.version>
         <project.encoding>UTF-8</project.encoding>
+
+        <!-- dependencies version define -->
         <junit.version>4.12</junit.version>
         <servlet.version>3.1.0</servlet.version>
         <spring.version>4.2.6.RELEASE</spring.version>
         <memcached.version>3.6.1</memcached.version>
         <spring.security.version>4.0.3.RELEASE</spring.security.version>
+
+        <!-- modules version  define-->
         <modules.version.spring-mybaits>1.0-SNAPSHOT</modules.version.spring-mybaits>
+        <modules.version.spring-quartz>1.0-SNAPSHOT</modules.version.spring-quartz>
+        <modules.version.spring-service>1.0-SNAPSHOT</modules.version.spring-service>
+        <modules.version.spring-web>1.0-SNAPSHOT</modules.version.spring-web>
+        <modules.version.spring-common>1.0-SNAPSHOT</modules.version.spring-common>
+        <modules.version.spring-cache>1.0-SNAPSHOT</modules.version.spring-cache>
+        <modules.version.spring-jcaptcha>1.0-SNAPSHOT</modules.version.spring-jcaptcha>
+        <modules.version.spring-oauth2>1.0-SNAPSHOT</modules.version.spring-oauth2>
+        <modules.version.spring-redis>1.0-SNAPSHOT</modules.version.spring-redis>
     </properties>
 
 

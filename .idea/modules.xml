@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DistributedSystemTest.iml" filepath="$PROJECT_DIR$/DistributedSystemTest.iml" />
+	<module fileurl="file://$PROJECT_DIR$/DistributedSystemTest.iml" filepath="$PROJECT_DIR$/DistributedSystemTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cache/spring-cache.iml" filepath="$PROJECT_DIR$/spring-cache/spring-cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-common/spring-common.iml" filepath="$PROJECT_DIR$/spring-common/spring-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-jcaptcha/spring-jcaptcha.iml" filepath="$PROJECT_DIR$/spring-jcaptcha/spring-jcaptcha.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-mybaits/spring-mybaits.iml" filepath="$PROJECT_DIR$/spring-mybaits/spring-mybaits.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-oauth2/spring-oauth2.iml" filepath="$PROJECT_DIR$/spring-oauth2/spring-oauth2.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-quartz/spring-quartz.iml" filepath="$PROJECT_DIR$/spring-quartz/spring-quartz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-redis/spring-redis.iml" filepath="$PROJECT_DIR$/spring-redis/spring-redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-service/spring-service.iml" filepath="$PROJECT_DIR$/spring-service/spring-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-web/spring-web.iml" filepath="$PROJECT_DIR$/spring-web/spring-web.iml" />
     </modules>

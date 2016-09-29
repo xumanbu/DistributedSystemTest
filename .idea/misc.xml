@@ -48,6 +48,15 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-service/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-jcaptcha/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-web/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-oauth2/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-common/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-redis/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-cache/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-mybaits/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-quartz/pom.xml" />
       </list>
     </option>
   </component>

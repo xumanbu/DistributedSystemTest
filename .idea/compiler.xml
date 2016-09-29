@@ -22,6 +22,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="db-spring-jdbc-generator" />
         <module name="spring-cache" />
         <module name="spring-common" />
         <module name="spring-jcaptcha" />
@@ -34,6 +35,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="db-spring-jdbc-generator" target="1.8" />
       <module name="DistributedSystemTest" target="1.8" />
       <module name="spring-cache" target="1.8" />
       <module name="spring-common" target="1.8" />

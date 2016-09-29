@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-	<module fileurl="file://$PROJECT_DIR$/DistributedSystemTest.iml" filepath="$PROJECT_DIR$/DistributedSystemTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DistributedSystemTest.iml" filepath="$PROJECT_DIR$/DistributedSystemTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/db-spring-jdbc-generator/db-spring-jdbc-generator.iml" filepath="$PROJECT_DIR$/db-spring-jdbc-generator/db-spring-jdbc-generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-cache/spring-cache.iml" filepath="$PROJECT_DIR$/spring-cache/spring-cache.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-common/spring-common.iml" filepath="$PROJECT_DIR$/spring-common/spring-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-jcaptcha/spring-jcaptcha.iml" filepath="$PROJECT_DIR$/spring-jcaptcha/spring-jcaptcha.iml" />

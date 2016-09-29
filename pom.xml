@@ -17,6 +17,7 @@
         <module>spring-jcaptcha</module>
         <module>spring-oauth2</module>
         <module>spring-redis</module>
+        <module>db-spring-jdbc-generator</module>
     </modules>
     <name>ds Maven Webapp</name>
     <url>http://maven.apache.org</url>

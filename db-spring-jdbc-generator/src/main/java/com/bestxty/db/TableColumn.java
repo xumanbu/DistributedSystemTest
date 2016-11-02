@@ -32,6 +32,28 @@ public class TableColumn {
         return columnName;
     }
 
+    public String getDisplayColumnName() {
+        String realTableName = "";
+        if (columnName.contains("_")) {
+            String[] arr = columnName.split("_");
+
+
+            for (String subStr : arr) {
+                realTableName += captureName(subStr);
+            }
+        }
+
+        return realTableName.equals("") ? captureName(columnName) : realTableName;
+    }
+
+    //首字母大写
+    public static String captureName(String name) {
+        char[] cs = name.toCharArray();
+        cs[0] -= 32;
+        return String.valueOf(cs);
+
+    }
+
     public void setColumnName(String columnName) {
         this.columnName = columnName == null ? null : columnName.trim();
     }

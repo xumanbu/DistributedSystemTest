@@ -46,6 +46,7 @@ public class MySQLDataBaseTableReverse implements DataBaseTableReverse {
     @Override
     public Table getTable(String tableName) {
         try {
+            Table table = new Table();
 
             ResultSet rst = mConnection.getMetaData().getPrimaryKeys("wechat_device", null, tableName);
 
@@ -55,11 +56,12 @@ public class MySQLDataBaseTableReverse implements DataBaseTableReverse {
 
                 System.out.println(rst.getString("TABLE_NAME") + " " + rst.getString("COLUMN_NAME"));
 
+                table.setTablePk(rst.getString("COLUMN_NAME"));
+
             }
 
             ResultSetMetaData metaData = getMetaDataFromTable(tableName);
 
-            Table table = new Table();
 
             table.setTableName(metaData.getTableName(1));
 

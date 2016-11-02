@@ -11,7 +11,10 @@ public class Table {
     private String tableName;
 
 
+    private String tablePk;
+
     private int columnCount;
+
 
 
     private List<TableColumn> columns;
@@ -38,28 +41,16 @@ public class Table {
 
     public String getTableName() {
 
-        String table = "";
-        if (tableName.contains("_")) {
-            String[] arr = tableName.split("_");
-
-
-            for (String subStr : arr) {
-                table += captureName(subStr);
-            }
-        }
-
-
-        return table.equals("") ? tableName : table;
+      return tableName;
     }
 
-    //首字母大写
-    public static String captureName(String name) {
-        char[] cs = name.toCharArray();
-        cs[0] -= 32;
-        return String.valueOf(cs);
-
+    public String getTablePk() {
+        return tablePk;
     }
 
+    public void setTablePk(String tablePk) {
+        this.tablePk = tablePk == null ? null : tablePk.trim();
+    }
 
     public void setTableName(String tableName) {
         this.tableName = tableName == null ? null : tableName.trim();
